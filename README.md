@@ -264,6 +264,13 @@ Here are the major options:
 
 - `apiKey`: [string] your MapTiler Cloud API key. Default: empty string
 
+- `maptilerLogo`: [boolean] controls the visibility of the MapTiler logo (only works with premium accounts). Default: `true`
+
+#### Options
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| maptilerLogo | boolean | `true` | If `false`, hides the MapTiler logo (only works with premium accounts) |
+
 The `MaptilerLayer` constructor and/or `maptilerLayer` factory function returns a Leaflet Maptiler layer that we will call `mtLayer`.
 
 #### Method `.addTo(map)`

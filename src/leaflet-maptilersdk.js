@@ -21,6 +21,7 @@ export function init() {
       interactive: false,
       // set the tilepane as the default pane to draw gl tiles
       pane: "tilePane",
+      maptilerLogo: true,
     },
 
     map: null,
@@ -42,17 +43,19 @@ export function init() {
       }
 
       // Adding MapTiler logo + link
-      const maptilerLink = document.createElement("a");
-      maptilerLink.href = "https://www.maptiler.com";
-      maptilerLink.style =
-        "position:absolute; left:10px; bottom:2px; z-index:999;";
-      const maptilerLogo = document.createElement("img");
-      maptilerLogo.src = "https://api.maptiler.com/resources/logo.svg";
-      maptilerLogo.alt = "MapTiler logo";
-      maptilerLogo.width = "100";
-      maptilerLogo.height = "30";
-      maptilerLink.appendChild(maptilerLogo);
-      map.getContainer().appendChild(maptilerLink);
+      if (this.options.maptilerLogo !== false) {
+        const maptilerLink = document.createElement("a");
+        maptilerLink.href = "https://www.maptiler.com";
+        maptilerLink.style =
+          "position:absolute; left:10px; bottom:2px; z-index:999;";
+        const maptilerLogo = document.createElement("img");
+        maptilerLogo.src = "https://api.maptiler.com/resources/logo.svg";
+        maptilerLogo.alt = "MapTiler logo";
+        maptilerLogo.width = "100";
+        maptilerLogo.height = "30";
+        maptilerLink.appendChild(maptilerLogo);
+        map.getContainer().appendChild(maptilerLink);
+      }
 
       const paneName = this.getPaneName();
       map.getPane(paneName).appendChild(this._container);
